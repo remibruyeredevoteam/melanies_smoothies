@@ -33,7 +33,7 @@ if ingredients_list:
       st.subheader(f"Nutrition information for {ingredient}:")
       st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
-if ingredients_list and len(ingredients_list) == 5 and name:
+if ingredients_list and name:
     
     insert = st.button("Place Order")
     if insert:
