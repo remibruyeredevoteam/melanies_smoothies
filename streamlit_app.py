@@ -26,8 +26,10 @@ ingredients_list = st.multiselect(
 
 if ingredients_list:
   for ingredient in ingredients_list:
+    st.subheader(f"Nutrition information for {ingredient}:")
     smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{ingredient.lower()}")  
-    st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+    if smoothiefroot_response.status_code == 200:
+      st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
 if ingredients_list and len(ingredients_list) == 5 and name:
     
