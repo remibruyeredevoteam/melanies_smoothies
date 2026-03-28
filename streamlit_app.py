@@ -27,7 +27,7 @@ ingredients_list = st.multiselect(
 
 if ingredients_list:
   for ingredient in ingredients_list:
-    search_on = pd_df.loc[pd_df['fruit_name'] == ingredient, 'search_on'].iloc[0]
+    search_on = pd_df.loc[pd_df['FRUIT_NAME'] == ingredient, 'SEARCH_ON'].iloc[0]
     smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}")  
     if smoothiefroot_response.status_code == 200:
       st.subheader(f"Nutrition information for {ingredient}:")
